@@ -37,6 +37,8 @@
 					loadEarthquakelayer(earthquakedata);
 				}
 			}
+			var earthquakelayer;
+			
 			// convert the received data - which is text - to JSON format and add it to the map
 			function loadEarthquakelayer(earthquakedata) {
 				// convert the text to JSON
@@ -47,8 +49,12 @@
 				mymap.fitBounds(earthquakelayer.getBounds());
 			}
 
+			// make sure that there is a variable for the earthquake layer to be referenced by
+			// this should be GLOBAL – i.e. not inside a function – so that any code can see the variable
+
 			function removeEarthquakeData() {
-				alert("remove the earthquake data here");
+				alert("Earthquake data will be removed");
+				mymap.removeLayer( earthquakelayer );
 			}
 		</script>
 	</head>
